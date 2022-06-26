@@ -10,5 +10,5 @@ import java.time.LocalDateTime;
 public class CompanyRequestDto {
     private String corpName;
     private String directorName;
-    private String Address;
+    private String addressId;
 }

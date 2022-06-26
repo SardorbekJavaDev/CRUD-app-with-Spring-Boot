@@ -10,6 +10,6 @@ import java.time.LocalDateTime;
 public class WorkerRequestDto {
     private String name;
     private String phoneNumber;
-    private String address;
+    private String addressId;
     private String departmentId;
 }

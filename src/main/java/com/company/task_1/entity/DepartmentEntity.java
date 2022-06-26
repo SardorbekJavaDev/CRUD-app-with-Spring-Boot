@@ -2,9 +2,7 @@ package com.company.task_1.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -12,6 +10,10 @@ import javax.persistence.Table;
 public class DepartmentEntity extends BaseEntity{
     @Column
     private String name;
+
     @Column
-    private String company;
+    private String companyId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "companyId", insertable = false,updatable = false)
+    private CompanyEntity company;
 }

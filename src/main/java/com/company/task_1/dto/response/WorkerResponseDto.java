@@ -12,6 +12,6 @@ public class WorkerResponseDto {
     private LocalDateTime createdDate;
     private String name;
     private String phoneNumber;
-    private String address;
+    private String addressId;
     private DepartmentResponseDto department;
 }

@@ -12,5 +12,5 @@ public class CompanyResponseDto {
     private LocalDateTime createdDate;
     private String corpName;
     private String directorName;
-    private String Address;
+    private String addressId;
 }

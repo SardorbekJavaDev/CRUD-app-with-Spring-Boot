@@ -15,12 +15,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class DepartmentService {
-    private DepartmentRepository repository;
+    private final DepartmentRepository repository;
 
     public DepartmentResponseDto create(DepartmentRequestDto dto) {
         DepartmentEntity entity = new DepartmentEntity();
         entity.setName(dto.getName());
-        entity.setCompany(dto.getCompany());
+        entity.setCompanyId(dto.getCompanyId());
         repository.save(entity);
         return toResponseDTO(entity);
     }
@@ -29,7 +29,7 @@ public class DepartmentService {
         DepartmentResponseDto dto = new DepartmentResponseDto();
         dto.setId(entity.getId());
         dto.setName(entity.getName());
-        dto.setCompany(entity.getCompany());
+        dto.setCompanyId(entity.getCompanyId());
         dto.setCreatedDate(entity.getCreatedDate());
         return dto;
     }
@@ -38,11 +38,14 @@ public class DepartmentService {
         DepartmentEntity entity = repository.findById(id).orElseThrow(() -> {
             throw new ItemNotFoundException("Item not Found");
         });
+        if (!entity.getVisible()) {
+            throw new ItemNotFoundException("Item deleted");
+        }
         return toResponseDTO(entity);
     }
 
     public Boolean update(DepartmentRequestDto dto, String id) {
-        int n = repository.update(id, dto.getName(), dto.getCompany());
+        int n = repository.update(id, dto.getName(), dto.getCompanyId());
         return n > 0;
     }
 

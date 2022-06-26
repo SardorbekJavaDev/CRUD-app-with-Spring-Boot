@@ -12,8 +12,8 @@ public interface WorkerRepository extends JpaRepository<WorkerEntity, String> {
 
     @Transactional
     @Modifying
-    @Query("update WorkerEntity set name=:name, phoneNumber=:phone, address=:address, departmentId=:dId where id = :id")
-    int update(@Param("id") String id, @Param("name") String name, @Param("address") String address, @Param("dId") String dId, @Param("phone") String phone);
+    @Query("update WorkerEntity set name=:name, phoneNumber=:phone, addressId=:aId, departmentId=:dId where id = :id")
+    int update(@Param("id") String id, @Param("name") String name, @Param("aId") String aId, @Param("dId") String dId, @Param("phone") String phone);
 
     @Transactional
     @Modifying

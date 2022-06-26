@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AddressService {
-    private AddressRepository repository;
+    private final AddressRepository repository;
 
     public AddressResponseDto create(AddressRequestDto dto) {
         AddressEntity entity = new AddressEntity();
@@ -38,6 +38,9 @@ public class AddressService {
         AddressEntity entity = repository.findById(id).orElseThrow(() -> {
             throw new ItemNotFoundException("Item not Found");
         });
+        if (!entity.getVisible()) {
+            throw new ItemNotFoundException("Item deleted");
+        }
         return toResponseDTO(entity);
     }
 

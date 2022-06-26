@@ -9,16 +9,23 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/address/{{id}}
+PUT http://localhost:8080/address/402853be819e763f01819e76cff00000
+Content-Type: application/json
+
+{
+  "street":"General Qozoqova",
+  "homeNumber":"17"
+}
 
 ###
-DELETE http://localhost:8080/address/{{id}}
+DELETE http://localhost:8080/address/402853be819e7a5901819e7ae8690001
 
 ###
 GET http://localhost:8080/address
 
 ###
-GET http://localhost:8080/address/{{id}}
+GET http://localhost:8080/address/402853be819e763f01819e76cff00000
+
 
 
 

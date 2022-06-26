@@ -15,5 +15,5 @@ public class DepartmentResponseDto {
     private String id;
     private LocalDateTime createdDate;
     private String name;
-    private String company;
+    private String companyId;
 }

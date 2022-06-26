@@ -2,9 +2,7 @@ package com.company.task_1.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,6 +12,10 @@ public class CompanyEntity extends BaseEntity {
     private String corpName;
     @Column(name = "director_name")
     private String directorName;
-    @Column(name = "address")
-    private String address;
+
+    @Column(name = "address_id")
+    private String addressId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id", insertable = false, updatable = false)
+    private AddressEntity addressEntity;
 }

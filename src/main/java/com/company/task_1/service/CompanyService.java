@@ -15,11 +15,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CompanyService {
-    private CompanyRepository repository;
+    private final CompanyRepository repository;
 
     public CompanyResponseDto create(CompanyRequestDto dto) {
         CompanyEntity entity = new CompanyEntity();
-        entity.setAddress(dto.getAddress());
+        entity.setAddressId(dto.getAddressId());
         entity.setDirectorName(dto.getDirectorName());
         entity.setCorpName(dto.getCorpName());
         repository.save(entity);
@@ -29,7 +29,7 @@ public class CompanyService {
     private CompanyResponseDto toResponseDTO(CompanyEntity entity) {
         CompanyResponseDto dto = new CompanyResponseDto();
         dto.setId(entity.getId());
-        dto.setAddress(entity.getAddress());
+        dto.setAddressId(entity.getAddressId());
         dto.setDirectorName(entity.getDirectorName());
         dto.setCorpName(entity.getCorpName());
         dto.setCreatedDate(entity.getCreatedDate());
@@ -40,11 +40,14 @@ public class CompanyService {
         CompanyEntity entity = repository.findById(id).orElseThrow(() -> {
             throw new ItemNotFoundException("Item not Found");
         });
+        if (!entity.getVisible()) {
+            throw new ItemNotFoundException("Item deleted");
+        }
         return toResponseDTO(entity);
     }
 
     public Boolean update(CompanyRequestDto dto, String id) {
-        int n = repository.update(id, dto.getCorpName(), dto.getDirectorName(), dto.getAddress());
+        int n = repository.update(id, dto.getCorpName(), dto.getDirectorName(), dto.getAddressId());
         return n > 0;
     }
 

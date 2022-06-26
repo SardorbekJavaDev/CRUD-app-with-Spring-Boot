@@ -12,8 +12,8 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, String> 
 
     @Transactional
     @Modifying
-    @Query("update CompanyEntity set corpName=:corpName, directorName =:directorName, address =:address where id = :id")
-    int update(@Param("id") String id, @Param("corpName") String corpName, @Param("directorName") String directorName, @Param("address") String address);
+    @Query("update CompanyEntity set corpName=:corpName, directorName =:directorName, addressId =:aId where id = :id")
+    int update(@Param("id") String id, @Param("corpName") String corpName, @Param("directorName") String directorName, @Param("aId") String aId);
 
 
     @Transactional

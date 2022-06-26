@@ -1,6 +1,14 @@
 
 ###
 POST http://localhost:8080/company
+Content-Type: application/json
+
+{
+  "corpName":"General Uzoqova",
+  "directorName":"15",
+  "address":"15"
+}
+
 
 ###
 PUT http://localhost:8080/company/{{id}}

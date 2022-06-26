@@ -15,11 +15,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class WorkerService {
-    private WorkerRepository repository;
+    private final WorkerRepository repository;
 
     public WorkerResponseDto create(WorkerRequestDto dto) {
         WorkerEntity entity = new WorkerEntity();
-        entity.setAddress(dto.getAddress());
+        entity.setAddressId(dto.getAddressId());
         entity.setDepartmentId(dto.getDepartmentId());
         entity.setName(dto.getName());
         entity.setPhoneNumber(dto.getPhoneNumber());
@@ -32,12 +32,12 @@ public class WorkerService {
 
         WorkerResponseDto dto = new WorkerResponseDto();
         dto.setId(entity.getId());
-        dto.setAddress(entity.getAddress());
+        dto.setAddressId(entity.getAddressId());
         dto.setDepartment(new DepartmentResponseDto(
                 department.getId(),
                 department.getCreatedDate(),
                 department.getName(),
-                department.getCompany()));
+                department.getCompanyId()));
         dto.setPhoneNumber(entity.getPhoneNumber());
         dto.setCreatedDate(entity.getCreatedDate());
         return dto;
@@ -47,11 +47,14 @@ public class WorkerService {
         WorkerEntity entity = repository.findById(id).orElseThrow(() -> {
             throw new ItemNotFoundException("Item not Found");
         });
+        if (!entity.getVisible()) {
+            throw new ItemNotFoundException("Item deleted");
+        }
         return toResponseDTO(entity);
     }
 
     public Boolean update(WorkerRequestDto dto, String id) {
-        int n = repository.update(id, dto.getName(), dto.getAddress(), dto.getDepartmentId(), dto.getPhoneNumber());
+        int n = repository.update(id, dto.getName(), dto.getAddressId(), dto.getDepartmentId(), dto.getPhoneNumber());
         return n > 0;
     }
 

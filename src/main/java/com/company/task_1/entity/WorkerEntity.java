@@ -12,8 +12,12 @@ public class WorkerEntity extends BaseEntity {
     private String name;
     @Column
     private String phoneNumber;
-    @Column
-    private String address;
+
+    @Column(name = "address_id")
+    private String addressId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id", insertable = false, updatable = false)
+    private AddressEntity addressEntity;
 
     @Column(name = "department_id")
     private String departmentId;

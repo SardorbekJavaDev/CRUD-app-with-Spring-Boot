@@ -9,5 +9,5 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DepartmentRequestDto {
     private String name;
-    private String company;
+    private String companyId;
 }

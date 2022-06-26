@@ -12,8 +12,8 @@ public interface DepartmentRepository extends JpaRepository<DepartmentEntity, St
 
     @Transactional
     @Modifying
-    @Query("update DepartmentEntity set name=:name, company =:company where id = :id")
-    int update(@Param("id") String id, @Param("name") String name, @Param("company") String company);
+    @Query("update DepartmentEntity set name=:name, companyId =:cId where id = :id")
+    int update(@Param("id") String id, @Param("name") String name, @Param("cId") String cId);
 
 
     @Transactional
