@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/company")
 @RequiredArgsConstructor
 public class CompanyController {
-    private CompanyService service;
+    private final CompanyService service;
 
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody CompanyRequestDto dto){

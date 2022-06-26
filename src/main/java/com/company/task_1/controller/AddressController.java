@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/address")
 @RequiredArgsConstructor
 public class AddressController {
-    private AddressService service;
+    private final AddressService service;
 
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody AddressRequestDto dto){

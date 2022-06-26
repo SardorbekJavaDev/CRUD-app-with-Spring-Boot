@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/department")
 @RequiredArgsConstructor
 public class DepartmentController {
-    DepartmentService service;
+    private final DepartmentService service;
 
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody DepartmentRequestDto dto){

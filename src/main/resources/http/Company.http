@@ -1,0 +1,15 @@
+
+###
+POST http://localhost:8080/company
+
+###
+PUT http://localhost:8080/company/{{id}}
+
+###
+DELETE http://localhost:8080/company/{{id}}
+
+###
+GET http://localhost:8080/company
+
+###
+GET http://localhost:8080/company/{{id}}
