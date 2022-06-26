@@ -1,15 +1,27 @@
 
 ###
 POST http://localhost:8080/department
+Content-Type: application/json
+
+{
+  "name":"Java Juniors",
+  "companyId":"402853be819eb45a01819eb531db0001"
+}
 
 ###
-PUT http://localhost:8080/department/{{id}}
+PUT http://localhost:8080/department/402853be819ebfbf01819ec1636c0000
+Content-Type: application/json
+
+{
+  "name":"Java department",
+  "companyId":"402853be819eb45a01819eb531db0001"
+}
 
 ###
-DELETE http://localhost:8080/department/{{id}}
+DELETE http://localhost:8080/department/402853be819ebfbf01819ec1636c0000
 
 ###
 GET http://localhost:8080/department
 
 ###
-GET http://localhost:8080/department/{{id}}
+GET http://localhost:8080/department/402853be819ebfbf01819ec2407f0001

@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
   "street":"General Uzoqova",
-  "homeNumber":"15"
+  "homeNumber":"45"
 }
 
 ###
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
   "street":"General Qozoqova",
-  "homeNumber":"17"
+  "homeNumber":"20"
 }
 
 ###

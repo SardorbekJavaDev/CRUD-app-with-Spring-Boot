@@ -1,5 +1,6 @@
 package com.company.task_1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,11 +18,13 @@ public class WorkerEntity extends BaseEntity {
     private String addressId;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private AddressEntity addressEntity;
 
     @Column(name = "department_id")
     private String departmentId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private DepartmentEntity department;
 }

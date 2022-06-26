@@ -13,5 +13,5 @@ public class WorkerResponseDto {
     private String name;
     private String phoneNumber;
     private String addressId;
-    private DepartmentResponseDto department;
+    private String departmentId;
 }

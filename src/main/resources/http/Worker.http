@@ -1,15 +1,30 @@
 
 ###
 POST http://localhost:8080/worker
+Content-Type: application/json
+
+{
+  "name":"Java Juniors",
+  "phoneNumber":"Java Juniors",
+  "addressId":"402853be819ec31d01819ec642910001",
+  "departmentId":"402853be819ebfbf01819ec2407f0001"
+}
 
 ###
-PUT http://localhost:8080/worker/{{id}}
+PUT http://localhost:8080/worker/402853be819ecaf601819ecb5d700000
+Content-Type: application/json
 
+{
+  "name":"Java Juniors",
+  "phoneNumber":"Java",
+  "addressId":"402853be819ec31d01819ec642910001",
+  "departmentId":"402853be819ebfbf01819ec2407f0001"
+}
 ###
-DELETE http://localhost:8080/worker/{{id}}
+DELETE http://localhost:8080/worker/402853be819ecaf601819ecb5d700000
 
 ###
 GET http://localhost:8080/worker
 
 ###
-GET http://localhost:8080/worker/{{id}}
+GET http://localhost:8080/worker/402853be819ecaf601819ecb5d700000

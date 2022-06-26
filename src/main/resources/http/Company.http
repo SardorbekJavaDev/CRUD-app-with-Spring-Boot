@@ -4,14 +4,21 @@ POST http://localhost:8080/company
 Content-Type: application/json
 
 {
-  "corpName":"General Uzoqova",
-  "directorName":"15",
-  "address":"15"
+  "corpName":"Java Juniors",
+  "directorName":"Sardorbek",
+  "addressId":"402853be819eb45a01819eb4e4ce0000"
 }
 
 
 ###
-PUT http://localhost:8080/company/{{id}}
+PUT http://localhost:8080/company/402853be819eb45a01819eb531db0001
+Content-Type: application/json
+
+{
+  "corpName":"Junior Java developers",
+  "directorName":"Sardorbek Yorqulov",
+  "addressId":"402853be819eb45a01819eb4e4ce0000"
+}
 
 ###
 DELETE http://localhost:8080/company/{{id}}
@@ -20,4 +27,4 @@ DELETE http://localhost:8080/company/{{id}}
 GET http://localhost:8080/company
 
 ###
-GET http://localhost:8080/company/{{id}}
+GET http://localhost:8080/company/402853be819eb45a01819eb531db0001

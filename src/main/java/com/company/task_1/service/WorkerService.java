@@ -28,16 +28,10 @@ public class WorkerService {
     }
 
     private WorkerResponseDto toResponseDTO(WorkerEntity entity) {
-        DepartmentEntity department = entity.getDepartment();
-
         WorkerResponseDto dto = new WorkerResponseDto();
         dto.setId(entity.getId());
         dto.setAddressId(entity.getAddressId());
-        dto.setDepartment(new DepartmentResponseDto(
-                department.getId(),
-                department.getCreatedDate(),
-                department.getName(),
-                department.getCompanyId()));
+        dto.setDepartmentId(entity.getDepartmentId());
         dto.setPhoneNumber(entity.getPhoneNumber());
         dto.setCreatedDate(entity.getCreatedDate());
         return dto;
